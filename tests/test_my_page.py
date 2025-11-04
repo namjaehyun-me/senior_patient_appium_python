@@ -44,6 +44,7 @@ class TestMyPage:
                 'month_1': (AppiumBy.XPATH, '//android.widget.TextView[@text="1월"]'),
                 'day_21': (AppiumBy.XPATH, '//android.widget.TextView[@text="21"]'),
                 'confirm_btn': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="android:id/button1"]'),
+                'pay_ment_confirm_btn': (AppiumBy.XPATH, '//android.widget.Button[@text="확인"]'),
                 'relationship_dropdown': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="선택"])[1]'),
                 'other_option': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]'),
                 'grade_dropdown': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="선택"]'),
@@ -80,9 +81,10 @@ class TestMyPage:
                 # 추가 마이페이지 로케이터
                 'admission_proposal_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="입소제안"]'),
                 'first_proposal_item': (AppiumBy.XPATH, '(//android.view.ViewGroup[@clickable="true"])[1]'),
+                'come_first_proposal_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]'),
                 'admission_support_update_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="입소지원서 업데이트"]'),
                 'proposal_setting_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="입소 제안 설정"]'),
-                'third_checkbox': (AppiumBy.XPATH, '(//android.widget.CheckBox)[3]'),
+                'third_checkbox': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]'),
                 'setting_complete_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="설정완료"]'),
                 'favorite_institutions_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="관심기관"]'),
                 'first_heart_btn': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="하트"])[1]'),
@@ -90,6 +92,8 @@ class TestMyPage:
                 'download_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="다운받기"]'),
                 'notice_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="공지사항"]'),
                 'first_notice_item': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(19)'),
+                'pay_ment_first_notice_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'error_first_notice_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'event_first_notice_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'fnq_first_notice_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'fnq_first_notice_item2': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="2025년 하반기 시스템 통합 업데이트 사전 안내"]'),
@@ -100,8 +104,8 @@ class TestMyPage:
                 'error_report_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="오류신고센터"]'),
                 'category_dropdown': (AppiumBy.XPATH, '//android.widget.Spinner'),
                 'service_error_option': (AppiumBy.XPATH, '//android.widget.TextView[@text="서비스신청오류"]'),
-                'title_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="제목"]'),
-                'opinion_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="사용자님의 의견"]'),
+                'title_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="제목을 기재해 주세요"]'),
+                'opinion_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="의견을 자유롭게 기재해주세요."]'),
                 'report_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="신고하기"]'),
                 'list_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="목록"]'),
                 'delete_report_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="삭제하기"]'),
@@ -115,13 +119,14 @@ class TestMyPage:
                 'bank_transfer_option': (AppiumBy.XPATH, '//android.widget.TextView[@text="실시간 계좌이체"]'),
                 'agree_all_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="전체동의"]'),
                 'next_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="다음"]'),
-                'phone_input': (AppiumBy.XPATH, '//android.widget.EditText'),
-                'number_5': (AppiumBy.XPATH, '//android.widget.TextView[@text="5"]'),
-                'number_2': (AppiumBy.XPATH, '//android.widget.TextView[@text="2"]'),
-                'number_8': (AppiumBy.XPATH, '//android.widget.TextView[@text="8"]'),
-                'number_9': (AppiumBy.XPATH, '//android.widget.TextView[@text="9"]'),
-                'number_7': (AppiumBy.XPATH, '//android.widget.TextView[@text="7"]'),
-                'agree_payment_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="동의하고 결제하기"]'),
+                'pay_ment_next_btn': (AppiumBy.XPATH, '//android.widget.Button[@text="다음"]'),
+                'phone_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="010"]'),
+                'number_5': (AppiumBy.XPATH, '//android.widget.Button[@content-desc="5"]'),
+                'number_2': (AppiumBy.XPATH, '//android.widget.Button[@content-desc="2"]'),
+                'number_8': (AppiumBy.XPATH, '//android.widget.Button[@content-desc="8"]'),
+                'number_9': (AppiumBy.XPATH, '//android.widget.Button[@content-desc="9"]'),
+                'number_7': (AppiumBy.XPATH, '//android.widget.Button[@content-desc="7"]'),
+                'agree_payment_btn': (AppiumBy.XPATH, '//android.widget.Button[@text="동의하고 결제하기"]'),
                 'bottom_favorite_institutions_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="관심기관"]'),
                 'first_favorite_heart_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="숲데이케어센터, 2018.04.19, 60 명 정원, 서울 동작구 상도로68길 1-20"]/android.view.ViewGroup[2]/android.view.ViewGroup'),
                 'toast_message': (AppiumBy.XPATH, '//android.view.ViewGroup[@resource-id="toastAnimatedContainer"]'),
@@ -129,6 +134,10 @@ class TestMyPage:
                 'search_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="검색"]'),
                 'search_icon_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'loction_access_modal': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]'),
+                'category_button1': (AppiumBy.XPATH, '//android.widget.ImageView'),
+                'category_button2': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="시작하기"]/android.view.ViewGroup'),
+                'list_item': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'list_item_youtube': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="▶"])[2]/android.view.ViewGroup'),
             },
             'ios': {
                 # 마이페이지 관련 로케이터
@@ -146,6 +155,7 @@ class TestMyPage:
                 'month_1': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='1월']"),
                 'day_21': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='21']"),
                 'confirm_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='확인']"),
+                'pay_ment_confirm_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='확인']"),
                 'relationship_dropdown': (AppiumBy.XPATH, "//XCUIElementTypePicker"),
                 'other_option': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='기타']"),
                 'grade_dropdown': (AppiumBy.XPATH, "//XCUIElementTypePicker"),
@@ -192,6 +202,8 @@ class TestMyPage:
                 'download_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='다운받기']"),
                 'notice_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='공지사항']"),
                 'first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
+                'pay_ment_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
+                'error_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
                 'event_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
                 'fnq_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
                 'faq_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='자주 묻는 질문']"),
@@ -216,6 +228,7 @@ class TestMyPage:
                 'bank_transfer_option': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='실시간 계좌이체']"),
                 'agree_all_checkbox': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='전체동의']"),
                 'next_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='다음']"),
+                'pay_ment_next_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='다음']"),
                 'phone_input': (AppiumBy.XPATH, "//XCUIElementTypeTextField"),
                 'number_5': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='5']"),
                 'number_2': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='2']"),
@@ -230,6 +243,10 @@ class TestMyPage:
                 'search_input': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@name='검색']"),
                 'search_icon_btn': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='검색']"),
                 'loction_access_modal': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='허용']"),
+                'category_button1': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='허용']"),
+                'category_button2': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='허용']"),
+                'list_item': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='허용']"),
+                'list_item_youtube': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='허용']"),
             }
         }
         
@@ -636,22 +653,25 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 입소제안 버튼 클릭
-            admission_proposal_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'admission_proposal_btn')))
+            # admission_proposal_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'admission_proposal_btn')))
+            admission_proposal_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '입소제안')
             admission_proposal_btn.click()
             time.sleep(0.5)
             
             # 첫번째 항목 클릭
-            first_proposal_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_proposal_item')))
+            first_proposal_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'come_first_proposal_item')))
             first_proposal_item.click()
             time.sleep(0.5)
             
             # 확인 버튼 클릭
-            confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn')))
+            # confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn')))
+            confirm_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '확인')
             confirm_btn.click()
             time.sleep(0.5)
             
             # 입소지원서 업데이트 버튼 클릭
-            admission_support_update_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'admission_support_update_btn')))
+            # admission_support_update_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'admission_support_update_btn')))
+            admission_support_update_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '입소지원서 업데이트')
             admission_support_update_btn.click()
             time.sleep(0.5)
             
@@ -660,7 +680,8 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 입소 제안 설정 버튼 클릭
-            proposal_setting_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'proposal_setting_btn')))
+            # proposal_setting_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'proposal_setting_btn')))
+            proposal_setting_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '입소 제안 설정')
             proposal_setting_btn.click()
             time.sleep(0.5)
             
@@ -670,13 +691,14 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 설정완료 버튼 클릭
-            setting_complete_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'setting_complete_btn')))
+            # setting_complete_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'setting_complete_btn')))
+            setting_complete_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '설정완료')
             setting_complete_btn.click()
             time.sleep(0.5)
             
             # 수정이 완료되었습니다! 토스트메세지가 나오는지 확인
             toast_message = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'toast_message')))
-            assert toast_message.is_displayed(), "수정 완료 토스트메세지가 표시되지 않습니다"
+            assert toast_message.is_displayed(), "수정이 완료되었습니다!"
             time.sleep(2)
             
             # 뒤로가기 버튼 클릭
@@ -686,7 +708,6 @@ class TestMyPage:
         except Exception as e:
             pytest.fail(f"입소제안 테스트 실패: {str(e)}")
     
-    # 
     def test_favorite_institutions_from_mypage(self, driver_setup):
         """마이페이지 관심기관 테스트"""
         if isinstance(driver_setup, dict):
@@ -984,21 +1005,38 @@ class TestMyPage:
             bottom_my_page_btn.click()
             time.sleep(0.5)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("학습자료실").instance(0));'
+            )
+            time.sleep(0.5)
+
             # 오류신고센터 버튼 클릭
-            error_report_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'error_report_btn')))
+            # error_report_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'error_report_btn')))
+            error_report_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '오류신고센터')
             error_report_btn.click()
             time.sleep(0.5)
             
             # 분류 드롭다운 클릭
-            category_dropdown = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'category_dropdown')))
+            # category_dropdown = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'category_dropdown')))
+            category_dropdown = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '분류를 선택해 주세요')
             category_dropdown.click()
             time.sleep(0.5)
             
             # 서비스신청오류 클릭
-            service_error_option = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'service_error_option')))
+            # service_error_option = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'service_error_option')))
+            service_error_option = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '매칭오류')
             service_error_option.click()
             time.sleep(0.5)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("사용자님의 의견").instance(0));'
+            )
+            time.sleep(0.5)
+
             # 제목 인풋에 오류 테스트중입니다 넣기
             title_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'title_input')))
             title_input.clear()
@@ -1011,53 +1049,66 @@ class TestMyPage:
             opinion_input.send_keys("오류 테스트중입니다 내용 테스트중입니다")
             time.sleep(0.5)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("신고하기").instance(0));'
+            )
+            time.sleep(0.5)
+
             # 신고하기 버튼 클릭
-            report_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'report_btn')))
+            # report_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'report_btn')))
+            report_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '신고하기')
             report_btn.click()
             time.sleep(0.5)
             
             # 토스트메세지 분석
             toast_message = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'toast_message')))
-            assert toast_message.is_displayed(), "신고 완료 토스트메세지가 표시되지 않습니다"
+            assert toast_message.is_displayed(), "완료!"
             time.sleep(2)
             
             # 첫번째 항목 클릭
-            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_notice_item')))
+            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'error_first_notice_item')))
             first_notice_item.click()
             time.sleep(0.5)
             
             # 목록 버튼 클릭
-            list_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'list_btn')))
+            # list_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'list_btn')))
+            list_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '목록')
             list_btn.click()
             time.sleep(0.5)
             
             # 첫번째 항목 클릭
-            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_notice_item')))
+            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'error_first_notice_item')))
             first_notice_item.click()
             time.sleep(0.5)
             
             # 삭제하기 버튼 클릭
-            delete_report_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'delete_report_btn')))
+            # delete_report_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'delete_report_btn')))
+            delete_report_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '삭제하기')
             delete_report_btn.click()
             time.sleep(0.5)
             
             # 진행 버튼 클릭
-            proceed_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'proceed_btn')))
+            # proceed_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'proceed_btn')))
+            proceed_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '진행')
             proceed_btn.click()
             time.sleep(0.5)
             
             # 토스트메세지 분석
             toast_message = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'toast_message')))
-            assert toast_message.is_displayed(), "삭제 완료 토스트메세지가 표시되지 않습니다"
+            assert toast_message.is_displayed(), "완료!"
             time.sleep(2)
             
             # 오류신고하기 버튼 클릭
-            error_report_create_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'error_report_create_btn')))
+            # error_report_create_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'error_report_create_btn')))
+            error_report_create_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '오류신고하기')
             error_report_create_btn.click()
             time.sleep(0.5)
             
             # 고객센터 문의하기 버튼 클릭
-            customer_inquiry_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'customer_inquiry_btn')))
+            # customer_inquiry_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'customer_inquiry_btn')))
+            customer_inquiry_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '고객센터 문의하기')
             customer_inquiry_btn.click()
             time.sleep(0.5)
             
@@ -1065,8 +1116,16 @@ class TestMyPage:
             driver.back()
             time.sleep(0.5)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("내 신고내역").instance(0));'
+            )
+            time.sleep(0.5)
+
             # 내 신고내역 버튼 클릭
-            my_report_history_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'my_report_history_btn')))
+            # my_report_history_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'my_report_history_btn')))
+            my_report_history_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '내 신고내역')
             my_report_history_btn.click()
             time.sleep(0.5)
             
@@ -1097,10 +1156,37 @@ class TestMyPage:
             bottom_my_page_btn.click()
             time.sleep(0.5)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("학습자료실").instance(0));'
+            )
+            time.sleep(0.5)
+
             # 학습자료실 버튼 클릭
-            learning_materials_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'learning_materials_btn')))
+            # learning_materials_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'learning_materials_btn')))
+            learning_materials_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '학습자료실')
             learning_materials_btn.click()
             time.sleep(0.5)
+
+            # 2. 카테고리 클릭
+            category_button1 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'category_button1')))
+            category_button1.click()
+            time.sleep(0.5)
+
+            category_button2 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'category_button2')))
+            category_button2.click()
+            time.sleep(0.5)
+
+            # 3-1. 목록 아이템 클릭
+            list_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'list_item')))
+            list_item.click()
+            # print("여기까지 왔음1")
+            time.sleep(2)
+
+            # 뒤로가기 버튼 클릭
+            driver.back()
+            driver.back()
             
         except Exception as e:
             pytest.fail(f"학습자료실 테스트 실패: {str(e)}")
@@ -1121,50 +1207,114 @@ class TestMyPage:
             bottom_my_page_btn.click()
             time.sleep(0.5)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("상품구매").instance(0));'
+            )
+            time.sleep(0.5)
+
             # 상품구매 버튼 클릭
-            product_purchase_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'product_purchase_btn')))
+            # product_purchase_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'product_purchase_btn')))
+            product_purchase_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '상품구매')
             product_purchase_btn.click()
             time.sleep(0.5)
             
             # 첫번째 항목 클릭
-            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_notice_item')))
+            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'pay_ment_first_notice_item')))
             first_notice_item.click()
             time.sleep(0.5)
             
             # 구매하기 버튼 클릭
-            purchase_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'purchase_btn')))
+            # purchase_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'purchase_btn')))
+            purchase_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '구매하기')
             purchase_btn.click()
             time.sleep(0.5)
             
             # 결제수단 드롭다운 클릭
-            payment_method_dropdown = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'payment_method_dropdown')))
+            # payment_method_dropdown = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'payment_method_dropdown')))
+            payment_method_dropdown = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '선택')
             payment_method_dropdown.click()
             time.sleep(0.5)
             
             # 실시간 계좌이체 클릭
-            bank_transfer_option = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'bank_transfer_option')))
+            # bank_transfer_option = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'bank_transfer_option')))
+            bank_transfer_option = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '실시간 계좌이체')
             bank_transfer_option.click()
             time.sleep(0.5)
             
             # 전체동의 체크박스 클릭
-            agree_all_checkbox = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'agree_all_checkbox')))
+            # agree_all_checkbox = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'agree_all_checkbox')))
+            agree_all_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '전체동의')
             agree_all_checkbox.click()
+            time.sleep(0.5)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
             time.sleep(0.5)
             
             # 다음 버튼 클릭
-            next_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'next_btn')))
+            # next_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'next_btn')))
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '다음')
             next_btn.click()
             time.sleep(0.5)
             
             # 인풋을 클릭후 92205162 넣기
             phone_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'phone_input')))
             phone_input.click()
-            phone_input.send_keys("92205162")
+            phone_input.send_keys("01092205162")
             time.sleep(0.5)
             
             # 다음 버튼 클릭
-            next_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'next_btn')))
+            next_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'pay_ment_next_btn')))
             next_btn.click()
+            time.sleep(0.5)
+            
+            # 5클릭
+            number_5 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'number_5')))
+            # number_5 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '5')
+            number_5.click()
+            time.sleep(0.5)
+            
+            # 2클릭
+            number_2 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'number_2')))
+            # number_2 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '2')
+            number_2.click()
+            time.sleep(0.5)
+            
+            # 2클릭
+            number_2.click()
+            time.sleep(0.5)
+            
+            # 8클릭
+            number_8 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'number_8')))
+            # number_8 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '8')
+            number_8.click()
+            time.sleep(0.5)
+            
+            # 9클릭
+            number_9 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'number_9')))
+            # number_9 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '9')
+            number_9.click()
+            time.sleep(0.5)
+            
+            # 7클릭
+            number_7 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'number_7')))
+            # number_7 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '7')
+            number_7.click()
+            time.sleep(0.5)
+            
+            # 동의하고 결제하기 버튼 클릭
+            agree_payment_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'agree_payment_btn')))
+            agree_payment_btn.click()
+            time.sleep(0.5)
+            
+            # 확인 버튼 클릭
+            confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'pay_ment_confirm_btn')))
+            confirm_btn.click()
             time.sleep(0.5)
             
             # 5클릭
@@ -1196,43 +1346,8 @@ class TestMyPage:
             number_7.click()
             time.sleep(0.5)
             
-            # 동의하고 결제하기 버튼 클릭
-            agree_payment_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'agree_payment_btn')))
-            agree_payment_btn.click()
-            time.sleep(0.5)
-            
-            # 확인 버튼 클릭
-            confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn')))
-            confirm_btn.click()
-            time.sleep(0.5)
-            
-            # 5클릭
-            number_5.click()
-            time.sleep(0.5)
-            
-            # 2클릭
-            number_2.click()
-            time.sleep(0.5)
-            
-            # 2클릭
-            number_2.click()
-            time.sleep(0.5)
-            
-            # 8클릭
-            number_8.click()
-            time.sleep(0.5)
-            
-            # 9클릭
-            number_9.click()
-            time.sleep(0.5)
-            
-            # 7클릭
-            number_7.click()
-            time.sleep(0.5)
-            
             # 뒤로가기 버튼 클릭
             driver.back()
-            time.sleep(0.5)
             
             # 뒤로가기 버튼 클릭
             driver.back()
