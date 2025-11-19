@@ -16,7 +16,9 @@ class LoginPage(BasePage):
                 'settings': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup'),
                 'logout': (AppiumBy.XPATH, "//android.view.ViewGroup[@content-desc='로그아웃']"),
                 'error_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='이 필드는 필수 항목입니다!']"),
-                'toast_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']")
+                'toast_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']"),
+                'terms_of_change': (AppiumBy.ACCESSIBILITY_ID, "전체 동의"),
+                'terms_of_change_go': (AppiumBy.ACCESSIBILITY_ID, "동의하고 계속하기")
             },
             'ios': {
                 'username': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@value='아이디를 입력해 주세요.']"),
@@ -30,7 +32,9 @@ class LoginPage(BasePage):
                 'settings': (AppiumBy.XPATH, "(//XCUIElementTypeOther[@name='Mapa.'])[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]"),
                 'logout': (AppiumBy.ACCESSIBILITY_ID, "로그아웃"),
                 'error_msg': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='이 필드는 필수 항목입니다!']"),
-                'toast_msg': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']")
+                'toast_msg': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']"),
+                'terms_of_change': (AppiumBy.ACCESSIBILITY_ID, "전체 동의"),
+                'terms_of_change_go': (AppiumBy.ACCESSIBILITY_ID, "동의하고 계속하기")
             }
         }
         return locators[self.platform][element_name]
@@ -223,4 +227,18 @@ class LoginPage(BasePage):
             self.click_element(self._get_locator('password_skip'))
         except:
             # 비밀번호 변경 화면이 없으면 무시
+            pass
+    
+    def terms_of_change_page(self):
+        """변경된 약관 페이지"""
+        try:
+            self.click_element(self._get_locator('terms_of_change'))
+            self.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("동의하고 계속하기").instance(0));'
+            )
+            self.click_element(self._get_locator('terms_of_change_go'))
+        except:
+            # 해당 페이지가 없으면 패스
             pass

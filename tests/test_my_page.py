@@ -38,7 +38,8 @@ class TestMyPage:
                 'name_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="대상자의 이름을 입력하세요"]'),
                 # 'birth_date_btn': (AppiumBy.XPATH, '//android.widget.EditText[@text="날짜 선택"]'),
                 # 'birth_date_btn': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("날짜 선택")'),
-                'birth_date_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[3]'),
+                # 'birth_date_btn': (AppiumBy.XPATH, '//android.widget.EditText[@text="날짜 선택"]'),
+                'birth_date_btn': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("날짜 선택")'),
                 # 'birth_date_btn': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(19)'),
                 'year_1992': (AppiumBy.XPATH, '//android.widget.TextView[@text="1992"]'),
                 'month_1': (AppiumBy.XPATH, '//android.widget.TextView[@text="1월"]'),
@@ -56,11 +57,11 @@ class TestMyPage:
                 'symptom_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="대상자의 증상을 입력해 주세요"]'),
                 'self_walking_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="자가보행"]'),
                 'admission_support_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="입소지원서 작성"]'),
-                'plus_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[2]'),
-                'jongro_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="종로구"]'),
-                'jung_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="중구"]'),
-                'yongsan_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="용산구"]'),
-                'selection_complete_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="선택완료"]'),
+                'plus_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'jongro_checkbox': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="종로구"]'),
+                'jung_checkbox': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="중구"]'),
+                'yongsan_checkbox': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="용산구"]'),
+                'selection_complete_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="선택완료"]'),
                 'size_10_59_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="10~59인"]'),
                 'nature_friendly_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="자연친화"]'),
                 'urban_type_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="도심형"]'),
@@ -68,10 +69,13 @@ class TestMyPage:
                 'gym_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="헬스장"]'),
                 'monthly_stay_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="한달살기"]'),
                 'accept_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="수락"]'),
-                'privacy_consent_checkbox': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[15]/android.view.ViewGroup[1]'),
+                # 'privacy_consent_checkbox': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[19]'),
+                # 'privacy_consent_checkbox': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(29)'),
+                'privacy_consent_checkbox': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[14]'),
                 'complete_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="작성완료"]'),
-                'first_item_checkbox': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(21)'),
-                'delete_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[4]'),
+                'first_item_checkbox': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(17)'),
+                'delete_btn': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(16)'),
+                # 'delete_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]'),
                 'proceed_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="진행"]'),
                 'back_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'payment_history_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="결제내역"]'),
@@ -97,6 +101,7 @@ class TestMyPage:
                 'event_first_notice_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'fnq_first_notice_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'fnq_first_notice_item2': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="2025년 하반기 시스템 통합 업데이트 사전 안내"]'),
+                # 'fnq_first_notice_item2': (AppiumBy.XPATH, '//android.widget.TextView[@text="2025년 하반기 시스템 통합 업데이트 사전 안내"]'),
                 'faq_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="자주 묻는 질문"]'),
                 'faq_search_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="궁금한 내용을 검색하세요"]'),
                 'event_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="이벤트"]'),
@@ -130,9 +135,10 @@ class TestMyPage:
                 'bottom_favorite_institutions_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="관심기관"]'),
                 'first_favorite_heart_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="숲데이케어센터, 2018.04.19, 60 명 정원, 서울 동작구 상도로68길 1-20"]/android.view.ViewGroup[2]/android.view.ViewGroup'),
                 'toast_message': (AppiumBy.XPATH, '//android.view.ViewGroup[@resource-id="toastAnimatedContainer"]'),
-                'hanmaeum_nursing_home_name': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="재가복지센터, 숲데이케어센터, 서울 동작구 상도로68길 1-20"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup'),
+                'hanmaeum_nursing_home_name': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="재가복지센터, 숲데이케어센터, 서울 동작구 상도로68길 1-20"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup'),
                 'search_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="검색"]'),
-                'search_icon_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                # 'search_icon_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'search_icon_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'loction_access_modal': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]'),
                 'category_button1': (AppiumBy.XPATH, '//android.widget.ImageView'),
                 'category_button2': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="시작하기"]/android.view.ViewGroup'),
@@ -206,6 +212,7 @@ class TestMyPage:
                 'error_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
                 'event_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
                 'fnq_first_notice_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
+                'fnq_first_notice_item2': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
                 'faq_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='자주 묻는 질문']"),
                 'faq_search_input': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@name='검색']"),
                 'event_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='이벤트']"),
@@ -289,9 +296,9 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 키보드 내리기
-            keyborad_hied = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'keyborad_hied')))
-            keyborad_hied.click()
-            time.sleep(0.5)
+            # keyborad_hied = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'keyborad_hied')))
+            # keyborad_hied.click()
+            # time.sleep(0.5)
             
             # 저장 버튼 클릭
             # save_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'save_btn')))
@@ -346,7 +353,8 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 생년월일 버튼 클릭
-            birth_date_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'birth_date_btn')))
+            # birth_date_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'birth_date_btn')))
+            birth_date_btn = driver.find_element(*self._get_locator(driver, 'birth_date_btn'))
             birth_date_btn.click()
             time.sleep(0.5)
             
@@ -545,7 +553,8 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 필수 항목에 대한 개인정보 수집 및 이용 동의 체크박스 클릭
-            privacy_consent_checkbox = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'privacy_consent_checkbox')))
+            # privacy_consent_checkbox = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'privacy_consent_checkbox')))
+            privacy_consent_checkbox = driver.find_element(*self._get_locator(driver, 'privacy_consent_checkbox'))
             privacy_consent_checkbox.click()
             time.sleep(0.5)
             
@@ -562,7 +571,8 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 삭제 버튼 클릭
-            delete_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'delete_btn')))
+            # delete_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'delete_btn')))
+            delete_btn = driver.find_element(*self._get_locator(driver, 'delete_btn'))
             delete_btn.click()
             time.sleep(0.5)
             
@@ -897,9 +907,10 @@ class TestMyPage:
             time.sleep(0.5)
             
             # 첫번째 항목 클릭
-            first_notice_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'fnq_first_notice_item2')))
-            first_notice_item.click()
-            time.sleep(2)
+            # first_notice_item2 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'fnq_first_notice_item2')))
+            # first_notice_item2 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '2025년 하반기 시스템 통합 업데이트 사전 안내')
+            # first_notice_item2.click()
+            # time.sleep(2)
             
             # 뒤로가기 버튼 클릭
             driver.back()
@@ -980,7 +991,7 @@ class TestMyPage:
             # customer_center_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'customer_center_btn')))
             customer_center_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '고객센터')
             customer_center_btn.click()
-            time.sleep(0.5)
+            time.sleep(3)
             
             # 뒤로가기 버튼 클릭
             driver.back()
@@ -1110,7 +1121,7 @@ class TestMyPage:
             # customer_inquiry_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'customer_inquiry_btn')))
             customer_inquiry_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '고객센터 문의하기')
             customer_inquiry_btn.click()
-            time.sleep(0.5)
+            time.sleep(1)
             
             # 뒤로가기 버튼 클릭
             driver.back()

@@ -69,8 +69,8 @@ class TestHomeScreenMatching:
                 'region_dropdown': (AppiumBy.XPATH, "//android.widget.Spinner"),
                 'nationwide': (AppiumBy.XPATH, "//android.widget.TextView[@text='전국']"),
                 'find_facility_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='시설 찾기']"),
-                'second_heart_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="C, 요양원, 모두케어, 경기 구리시 동구릉로 427, 9061.25 km"]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup'),
-                'second_heart_btn_in': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup'),
+                'second_heart_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="C, 요양원, 모두케어, 경기 구리시 동구릉로 427, 9061.25 km"]/android.view.ViewGroup[3]/android.view.ViewGroup'),
+                'second_heart_btn_in': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup'),
                 'toast_message': (AppiumBy.XPATH, '//android.view.ViewGroup[@resource-id="toastAnimatedContainer"]/android.view.ViewGroup'),
                 'second_item': (AppiumBy.XPATH, "(//android.widget.LinearLayout)[2]"),
                 'consult_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='상담신청']"),
@@ -132,7 +132,11 @@ class TestHomeScreenMatching:
                 'register_caregiver_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='등록��기']"),
                 'mony_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="시급 제안"]'),
                 # 동행
-                'hope_mony_input': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[6]'),
+                # 'hope_mony_input': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[5]'),
+                'hope_mony_input': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("희망하는 시급을 동행인에게 제안하세요")'),
+                # 'hope_mony_input': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[5]'),
+                'hope_mony_input2': (AppiumBy.XPATH, '//android.widget.EditText[@text="희망하는 시급을 동행인에게 제안하세요"]'),
+                # 'hope_mony_input2': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("희망하는 시급을 동행인에게 제안하세요")'),
                 'meeting_place_add_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]'),
                 'visit_place_add_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.view.ViewGroup[1]'),
                 'confirm_btn6': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="확인"])[1]'),
@@ -172,6 +176,7 @@ class TestHomeScreenMatching:
                 'nationwide': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='전국']"),
                 'find_facility_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='시설 찾기']"),
                 'second_heart_btn': (AppiumBy.XPATH, "(//XCUIElementTypeButton[@name='하트'])[2]"),
+                'second_heart_btn_in': (AppiumBy.XPATH, "(//XCUIElementTypeButton[@name='하트'])[2]"),
                 'toast_message': (AppiumBy.XPATH, "//XCUIElementTypeStaticText"),
                 'second_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[2]"),
                 'consult_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='상담신청']"),
@@ -219,6 +224,7 @@ class TestHomeScreenMatching:
                 'mony_input': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='등록기']"),
                 # 동행
                 'hope_mony_input': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@name='희망 시급']"),
+                'hope_mony_input2': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@name='희망 시급']"),
                 'meeting_place_add_btn': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='추가']"),
                 'visit_place_add_btn': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='추가']"),
                 'confirm_btn6': (AppiumBy.XPATH, "(//XCUIElementTypeStaticText[@name='확인'])[1]"),
@@ -271,7 +277,8 @@ class TestHomeScreenMatching:
             time.sleep(2)
             
             # 방문요양찾기 버튼 클릭
-            visit_care_btn = wait.until(EC.element_to_be_clickable(self._get_locator(actual_driver, 'visit_care_btn')))
+            # visit_care_btn = wait.until(EC.element_to_be_clickable(self._get_locator(actual_driver, 'visit_care_btn')))
+            visit_care_btn = actual_driver.find_element(AppiumBy.ACCESSIBILITY_ID, "방문요양 찾기, 찾기")
             visit_care_btn.click()
             time.sleep(1)
             
@@ -768,42 +775,47 @@ class TestHomeScreenMatching:
             
             # 모달 확인 버튼 (클릭한 가족의 입소신청서를 확인중이라는 모달)
             home_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn5')))
+            # home_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "홈으로")
             home_btn.click()
             time.sleep(1)
 
             # 뒤로가기 버튼 클릭
-            back_bth = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_bth2')))
-            back_bth.click()
-            time.sleep(1)
+            # back_bth = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_bth2')))
+            # back_bth.click()
+            driver.back()
+            # time.sleep(1)
 
-            driver.find_element(
-                AppiumBy.ANDROID_UIAUTOMATOR,
-                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
-                '.scrollIntoView(new UiSelector().textContains("전화번호").instance(0));'
-            )
-            time.sleep(1)
-
-            # 뒤로가기 버튼 클릭
-            back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_bth3')))
-            back_btn.click()
-            time.sleep(1)
+            # driver.find_element(
+            #     AppiumBy.ANDROID_UIAUTOMATOR,
+            #     'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+            #     '.scrollIntoView(new UiSelector().textContains("전화번호").instance(0));'
+            # )
+            # time.sleep(1)
 
             # 뒤로가기 버튼 클릭
-            back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn4')))
-            back_btn.click()
-            time.sleep(1)
-
-            driver.find_element(
-                AppiumBy.ANDROID_UIAUTOMATOR,
-                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
-                '.scrollIntoView(new UiSelector().textContains("장기요양기관 찾기").instance(0));'
-            )
-            time.sleep(1)
+            # back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_bth3')))
+            # back_btn.click()
+            driver.back()
+            # time.sleep(1)
 
             # 뒤로가기 버튼 클릭
-            back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn5')))
-            back_btn.click()
-            time.sleep(1)
+            # back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn4')))
+            # back_btn.click()
+            # time.sleep(1)
+            driver.back()
+
+            # driver.find_element(
+            #     AppiumBy.ANDROID_UIAUTOMATOR,
+            #     'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+            #     '.scrollIntoView(new UiSelector().textContains("장기요양기관 찾기").instance(0));'
+            # )
+            # time.sleep(1)
+
+            # 뒤로가기 버튼 클릭
+            # back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn5')))
+            # back_btn.click()
+            # time.sleep(1)
+            driver.back()
             
         except Exception as e:
             pytest.fail(f"장기요양기관 찾기 테스트 실패: {str(e)}")
@@ -1449,12 +1461,23 @@ class TestHomeScreenMatching:
             next_btn.click()
             time.sleep(1)
             
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("요약").instance(0));'
+            )
+            time.sleep(1)
+            
             # 희망하는 시급을 동행인에게 제안하세요 인풋에 20000 넣기
-            hourly_rate_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'hope_mony_input')))
+            # hourly_rate_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'hope_mony_input')))
+            hourly_rate_input = driver.find_element(*self._get_locator(driver, 'hope_mony_input'))
             hourly_rate_input.click()
+            # hourly_rate_input.clear()
+            # hourly_rate_input.send_keys("20000")
 
-            hourly_rate_input2 = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="희망하는 시급을 동행인에게 제안하세요"]')
-            hourly_rate_input2.clear()
+            hourly_rate_input2 = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'hope_mony_input2')))
+            # hourly_rate_input2 = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="희망하는 시급을 동행인에게 제안하세요"]')
+            # hourly_rate_input2.clear()
             hourly_rate_input2.send_keys("20000")
             time.sleep(1)
 

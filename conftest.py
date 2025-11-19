@@ -44,7 +44,7 @@ def driver_setup(platform, request):
         try:
             # 팝업 처리
             login_page.close_popup_if_present()
-            time.sleep(2)
+            time.sleep(1)
             
             # 로그인 상태 확인
             if not login_page.is_logged_in():
@@ -56,11 +56,11 @@ def driver_setup(platform, request):
                 login_page.click_login()
                 
                 # 로그인 후 처리
-                time.sleep(2)
+                time.sleep(1)
                 login_page.skip_password_change_if_present()
                 time.sleep(1)
                 login_page.allow_permission_if_present()
-                time.sleep(2)
+                time.sleep(1)
                 
                 print("✅ 자동 로그인 완료")
             else:

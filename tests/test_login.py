@@ -59,6 +59,8 @@ class TestLogin:
         self.login_page.skip_password_change_if_present()
         time.sleep(1)
         self.login_page.allow_permission_if_present()
+        time.sleep(1)
+        self.login_page.terms_of_change_page()
         
         # 로그인 성공 후 로그아웃 진행
         time.sleep(2)  # 화면 전환 대기
